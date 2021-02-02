@@ -10,6 +10,13 @@ class Preventivo extends React.Component {
         numeroPagine: 10,
         seo: 0,
         prodotti: 0,
+        blog: false,
+        formContatti: false,
+        gallery: false,
+        prenotazioni: false,
+        registrazioni: false,
+        analytics: false,
+        chat: false,
       };
   
       this.handleChange = this.handleChange.bind(this);
@@ -17,9 +24,12 @@ class Preventivo extends React.Component {
     }
   
     handleChange(event) {
-      let name = event.target.name;
-      let value = parseInt(event.target.value);
-      this.setState({[name]: value});
+
+        let target = event.target;
+        let name = target.name;
+        let value = target.type == 'checkbox' ? target.checked : parseInt(target.value);
+        this.setState({[name]: value});
+
     }
   
     handleSubmit(event) {
@@ -33,7 +43,24 @@ class Preventivo extends React.Component {
       let totale = 0;
 
       for (let key in this.state) {
-        totale += this.state[key];
+        if (key == 'blog' && this.state['blog'] == true) {
+          totale += 20;
+        } else if (key == 'formContatti' && this.state['formContatti'] == true) {
+          totale += 20;
+        } else if (key == 'gallery' && this.state['gallery'] == true) {
+          totale += 20;
+        } else if (key == 'prenotazioni' && this.state['prenotazioni'] == true) {
+          totale += 20;
+        } else if (key == 'registrazioni' && this.state['registrazioni'] == true) {
+          totale += 20;
+        } else if (key == 'analytics' && this.state['analytics'] == true) {
+          totale += 20;
+        } else if (key == 'chat' && this.state['chat'] == true) {
+          totale += 20;
+        } else {
+          totale += this.state[key];
+        }
+
       }
   
       return (
@@ -123,31 +150,31 @@ class Preventivo extends React.Component {
             <ul className="List">
               <li className="Option">
                 <label for="blog">Blog</label>
-                <input type="checkbox" id="blog" name="blog"></input>
+                <input type="checkbox" id="blog" name="blog" onChange={this.handleChange}></input>
               </li>
               <li className="Option">
                 <label for="formContatti">Form di contatti</label>
-                <input type="checkbox" id="formContatti" name="formContatti"></input>
+                <input type="checkbox" id="formContatti" name="formContatti" onChange={this.handleChange}></input>
               </li>
               <li className="Option">
                 <label for="gallery">Foto/Video gallery</label>
-                <input type="checkbox" id="gallery" name="gallery"></input>
+                <input type="checkbox" id="gallery" name="gallery" onChange={this.handleChange}></input>
               </li>
               <li className="Option">
                 <label for="prenotazioni">Sistema di prenotazioni</label>
-                <input type="checkbox" id="prenotazioni" name="prenotazioni"></input>
+                <input type="checkbox" id="prenotazioni" name="prenotazioni" onChange={this.handleChange}></input>
               </li>
               <li className="Option">
                 <label for="registrazioni">Registrazione utenti (Registrati/Accedi)</label>
-                <input type="checkbox" id="registrazioni" name="registrazioni"></input>
+                <input type="checkbox" id="registrazioni" name="registrazioni" onChange={this.handleChange}></input>
               </li>
               <li className="Option">
                 <label for="analytics">Google Analytics</label>
-                <input type="checkbox" id="analytics" name="analytics"></input>
+                <input type="checkbox" id="analytics" name="analytics" onChange={this.handleChange}></input>
               </li>
               <li className="Option">
                 <label for="chat">Live chat</label>
-                <input type="checkbox" id="chat" name="chat"></input>
+                <input type="checkbox" id="chat" name="chat" onChange={this.handleChange}></input>
               </li>
             </ul>
           </div>
