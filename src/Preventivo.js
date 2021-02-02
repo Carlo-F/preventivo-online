@@ -5,8 +5,11 @@ class Preventivo extends React.Component {
       super(props);
       this.state = {
         stileDesign: 10,
+        testi: 0,
+        immagini: 0,
         numeroPagine: 10,
-        contenuti: 0,
+        seo: 0,
+        prodotti: 0,
       };
   
       this.handleChange = this.handleChange.bind(this);
@@ -26,7 +29,7 @@ class Preventivo extends React.Component {
   
     render() {
 
-      // const totale = this.state.stileDesign + this.state.numeroPagine + this.state.contenuti;
+      // const totale = this.state.stileDesign + this.state.numeroPagine + this.state.testi;
       let totale = 0;
 
       for (let key in this.state) {
@@ -36,31 +39,117 @@ class Preventivo extends React.Component {
       return (
         <form onSubmit={this.handleSubmit}>
           <div className="Section">
-            <h2>Sezione 1: Design</h2>
-            <div className="Option">
+            <h2>1. Design</h2>
+            <ul className="List">
+            <li className="Option">
               <label>Stile di design</label>
               <select name="stileDesign" value={this.state.stileDesign} onChange={this.handleChange}>
                 <option value="10">Basilare</option>
                 <option value="20">Semplice ma attrattivo</option>
+                <option value="30">Professionale</option>
+                <option value="40">Totalmente personalizzato</option>
               </select>
-            </div>
-            <div className="Option">
+            </li>
+            <li className="Option">
+              <label>Responsive (incluso)</label>
+            </li>
+            </ul>
+          </div>
+          <div className="Section">
+            <h2>2. Contenuti</h2>
+            <ul className="List">
+            <li className="Option">
+              <label>Hai gia' i testi?</label>
+              <select name="testi" value={this.state.testi} onChange={this.handleChange}>
+                <option value="0">Si</option>
+                <option value="10">No</option>
+              </select>
+            </li>
+            <li className="Option">
+              <label>Hai gia' le immagini?</label>
+              <select name="immagini" value={this.state.immagini} onChange={this.handleChange}>
+                <option value="0">Si</option>
+                <option value="10">No</option>
+              </select>
+            </li>
+            <li className="Option">
               <label>Numero di pagine</label>
               <select name="numeroPagine" value={this.state.numeroPagine} onChange={this.handleChange}>
                 <option value="10">1-5</option>
                 <option value="20">6-10</option>
                 <option value="30">11+</option>
               </select>
-            </div>
+            </li>
+            </ul>
           </div>
           <div className="Section">
-            <h2>Sezione 2: Contenuti</h2>
-            <div className="Option">
-              <input type="radio" id="si" name="contenuti" value="0" defaultChecked onChange={this.handleChange}/>
-              <label for="si">Ho gia'  i contenuti</label>
-              <input type="radio" id="no" name="contenuti" value="10" onChange={this.handleChange}/>
-              <label for="no">Mi servono anche i contenuti</label>
-            </div>
+            <h2>3. Presenza su internet</h2>
+            <ul className="List">
+            <li className="Option">
+              <label>Dominio (incluso)</label>
+            </li>
+            <li className="Option">
+              <label>Hosting (incluso)</label>
+            </li>
+            <li className="Option">
+              <label>Certificato HTTPS (incluso)</label>
+            </li>
+            <li className="Option">
+              <label>Ottimizzazione SEO</label>
+              <select name="seo" value={this.state.seo} onChange={this.handleChange}>
+                <option value="10">Base</option>
+                <option value="20">Ottimizzato</option>
+                <option value="30">Professionale</option>
+              </select>
+            </li>
+            </ul>
+          </div>
+          <div className="Section">
+            <h2>4. E-Commerce</h2>
+            <ul className="List">
+            <li className="Option">
+              <label>Numero di prodotti</label>
+              <select name="prodotti" value={this.state.prodotti} onChange={this.handleChange}>
+                <option value="0">Non ne ho bisogno</option>
+                <option value="20">1-10 prodotti</option>
+                <option value="30">11-100 prodotti</option>
+                <option value="40">100 + prodotti</option>
+              </select>
+            </li>
+            </ul>
+          </div>
+          <div className="Section">
+            <h2>5. Opzioni aggiuntive</h2>
+            <ul className="List">
+              <li className="Option">
+                <label for="blog">Blog</label>
+                <input type="checkbox" id="blog" name="blog"></input>
+              </li>
+              <li className="Option">
+                <label for="formContatti">Form di contatti</label>
+                <input type="checkbox" id="formContatti" name="formContatti"></input>
+              </li>
+              <li className="Option">
+                <label for="gallery">Foto/Video gallery</label>
+                <input type="checkbox" id="gallery" name="gallery"></input>
+              </li>
+              <li className="Option">
+                <label for="prenotazioni">Sistema di prenotazioni</label>
+                <input type="checkbox" id="prenotazioni" name="prenotazioni"></input>
+              </li>
+              <li className="Option">
+                <label for="registrazioni">Registrazione utenti (Registrati/Accedi)</label>
+                <input type="checkbox" id="registrazioni" name="registrazioni"></input>
+              </li>
+              <li className="Option">
+                <label for="analytics">Google Analytics</label>
+                <input type="checkbox" id="analytics" name="analytics"></input>
+              </li>
+              <li className="Option">
+                <label for="chat">Live chat</label>
+                <input type="checkbox" id="chat" name="chat"></input>
+              </li>
+            </ul>
           </div>
           <div className="Section">
             <h2>Totale preventivo: {totale}</h2>
