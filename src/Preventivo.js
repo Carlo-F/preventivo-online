@@ -147,7 +147,7 @@ class Preventivo extends React.Component {
             <h2>4. E-Commerce</h2>
             <ul className="List">
             <li className="Option">
-              <label>Numero di prodotti</label>
+              <label>Numero prodotti</label>
               <select name="prodotti" value={this.state.prodotti} onChange={this.handleChange}>
                 <option value="0">Non ne ho bisogno</option>
                 <option value="500">🛍 1-10 prodotti</option>
@@ -191,7 +191,7 @@ class Preventivo extends React.Component {
             </ul>
           </div>
           <div className="Section">
-            <h2>✨ Costo stimato € {totale} ✨</h2>
+            <h2>✨ Costo stimato <span className="amount">€ {totale}</span> ✨</h2>
           </div>
         </form>
       )

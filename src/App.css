@@ -14,6 +14,10 @@
   color: #61dafb;
 }
 
+.amount {
+  color: #adff2f;
+}
+
 .Section {
   border-bottom: 1px solid white;
   margin-bottom: 10%;
@@ -35,6 +39,14 @@
 
 label {
   margin-right: 2%;
+}
+
+select{
+  font-size: 0.75em;
+}
+
+input[type="checkbox"] {
+  height: 20px;
 }
 
 .Section.cta, .Section.credits, .Notes {
