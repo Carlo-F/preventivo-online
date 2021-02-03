@@ -79,7 +79,7 @@ class Preventivo extends React.Component {
               </select>
             </li>
             <li className="Option">
-              <label>Responsive (incluso) ✅</label>
+              <label>Responsive (gratuito)</label>
             </li>
             </ul>
           </div>
@@ -125,13 +125,13 @@ class Preventivo extends React.Component {
             <h2>3. Presenza su internet</h2>
             <ul className="List">
             <li className="Option">
-              <label>Dominio (incluso) ✅</label>
+              <label>Dominio (gratuito)</label>
             </li>
             <li className="Option">
-              <label>Hosting (incluso) ✅</label>
+              <label>Hosting (gratuito)</label>
             </li>
             <li className="Option">
-              <label>Certificato HTTPS (incluso) ✅</label>
+              <label>Certificato HTTPS (gratuito)</label>
             </li>
             <li className="Option">
               <label>Ottimizzazione SEO</label>
