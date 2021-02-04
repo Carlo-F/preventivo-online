@@ -28,7 +28,7 @@ class Preventivo extends React.Component {
 
         let target = event.target;
         let name = target.name;
-        let value = target.type == 'checkbox' ? target.checked : parseInt(target.value);
+        let value = target.type === 'checkbox' ? target.checked : parseInt(target.value);
         this.setState({[name]: value});
 
     }
@@ -44,19 +44,19 @@ class Preventivo extends React.Component {
       let totale = 0;
 
       for (let key in this.state) {
-        if (key == 'blog' && this.state['blog'] == true) {
-          totale += 80;
-        } else if (key == 'formContatti' && this.state['formContatti'] == true) {
+        if (key === 'blog' && this.state['blog'] === true) {
           totale += 40;
-        } else if (key == 'gallery' && this.state['gallery'] == true) {
+        } else if (key === 'formContatti' && this.state['formContatti'] === true) {
           totale += 20;
-        } else if (key == 'prenotazioni' && this.state['prenotazioni'] == true) {
+        } else if (key === 'gallery' && this.state['gallery'] === true) {
+          totale += 20;
+        } else if (key === 'prenotazioni' && this.state['prenotazioni'] === true) {
           totale += 200;
-        } else if (key == 'registrazioni' && this.state['registrazioni'] == true) {
+        } else if (key === 'registrazioni' && this.state['registrazioni'] === true) {
           totale += 500;
-        } else if (key == 'analytics' && this.state['analytics'] == true) {
+        } else if (key === 'analytics' && this.state['analytics'] === true) {
           totale += 20;
-        } else if (key == 'chat' && this.state['chat'] == true) {
+        } else if (key === 'chat' && this.state['chat'] === true) {
           totale += 20;
         } else {
           totale += this.state[key];
@@ -70,12 +70,12 @@ class Preventivo extends React.Component {
             <h2>1. Design</h2>
             <ul className="List">
             <li className="Option">
-              <label>Stile di design</label>
+              <label>Grafica</label>
               <select name="stileDesign" value={this.state.stileDesign} onChange={this.handleChange}>
                 <option value="399">😐 Basilare</option>
-                <option value="499">😏 Semplice ma accattivante</option>
-                <option value="599">😉 Professionale</option>
-                <option value="699">😎 Totalmente personalizzato</option>
+                <option value="449">😏 Semplice ma accattivante</option>
+                <option value="549">😉 Professionale</option>
+                <option value="699">😎 Totalmente personalizzata</option>
               </select>
             </li>
             <li className="Option">
@@ -90,10 +90,10 @@ class Preventivo extends React.Component {
               <label>Numero di lingue</label>
               <select name="numeroLingue" value={this.state.numeroLingue} onChange={this.handleChange}>
                 <option value="0">Una lingua</option>
-                <option value="250">2 lingue</option>
-                <option value="350">3 lingue</option>
-                <option value="450">4 lingue</option>
-                <option value="650">5 lingue +</option>
+                <option value="200">2 lingue</option>
+                <option value="250">3 lingue</option>
+                <option value="300">4 lingue</option>
+                <option value="450">5 lingue +</option>
               </select>
             </li>
             <li className="Option">
@@ -107,7 +107,7 @@ class Preventivo extends React.Component {
               <label>Hai gia' le immagini?</label>
               <select name="immagini" value={this.state.immagini} onChange={this.handleChange}>
                 <option value="0">😌 Si</option>
-                <option value="100">🥺 No</option>
+                <option value="80">🥺 No</option>
               </select>
             </li>
             <li className="Option">
@@ -151,7 +151,7 @@ class Preventivo extends React.Component {
               <select name="prodotti" value={this.state.prodotti} onChange={this.handleChange}>
                 <option value="0">Non ne ho bisogno</option>
                 <option value="500">🛍 1-10 prodotti</option>
-                <option value="700">🛒 11-100 prodotti</option>
+                <option value="650">🛒 11-100 prodotti</option>
                 <option value="950">🏬 100 + prodotti</option>
               </select>
             </li>
@@ -177,7 +177,7 @@ class Preventivo extends React.Component {
                 <input type="checkbox" id="prenotazioni" name="prenotazioni" onChange={this.handleChange}></input>
               </li>
               <li className="Option">
-                <label for="registrazioni">🤵🏻‍♂️ Registrazione utenti (Registrati/Accedi)</label>
+                <label for="registrazioni">🤵🏻‍♂️ Login utenti (Registrati/Accedi)</label>
                 <input type="checkbox" id="registrazioni" name="registrazioni" onChange={this.handleChange}></input>
               </li>
               <li className="Option">

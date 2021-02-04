@@ -30,7 +30,6 @@
 
 .List {
   padding-left: 20px;
-  list-style: none;
 }
 
 .Option {
@@ -46,7 +45,8 @@ select{
 }
 
 input[type="checkbox"] {
-  height: 20px;
+  height: 25px;
+  width: 30px;
 }
 
 .Section.cta, .Section.credits, .Notes {
