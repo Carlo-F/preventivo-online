@@ -1,8 +1,10 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 class Preventivo extends React.Component {
     constructor(props) {
       super(props);
+
       this.state = {
         stileDesign: 399,
         numeroLingue: 0,
@@ -18,6 +20,7 @@ class Preventivo extends React.Component {
         registrazioni: false,
         analytics: false,
         chat: false,
+        isVisible: false,
       };
   
       this.handleChange = this.handleChange.bind(this);
@@ -34,13 +37,17 @@ class Preventivo extends React.Component {
     }
   
     handleSubmit(event) {
-      alert("E' stato selezionato: "+this.state.value);
       event.preventDefault();
+    }
+
+    toggle() {
+      this.setState({
+        isVisible: !this.state.isVisible
+      });
     }
   
     render() {
 
-      // const totale = this.state.stileDesign + this.state.numeroPagine + this.state.testi;
       let totale = 0;
 
       for (let key in this.state) {
@@ -58,6 +65,8 @@ class Preventivo extends React.Component {
           totale += 20;
         } else if (key === 'chat' && this.state['chat'] === true) {
           totale += 20;
+        } else if (key === 'isVisible') {
+          continue;
         } else {
           totale += this.state[key];
         }
@@ -191,7 +200,10 @@ class Preventivo extends React.Component {
             </ul>
           </div>
           <div className="Section">
-            <h2>✨ Costo stimato <span className="amount">€ {totale}</span> ✨</h2>
+            <h2>✨ Costo stimato: {this.state.isVisible? 
+              <span className="amount">€ {totale}</span> : 
+              <Button className="primary" size="large" variant="contained" color="secondary" onClick={this.toggle.bind(this)}>Calcola ora</Button>
+            } ✨</h2>
           </div>
         </form>
       )
