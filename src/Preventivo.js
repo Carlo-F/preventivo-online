@@ -52,17 +52,17 @@ class Preventivo extends React.Component {
 
       for (let key in this.state) {
         if (key === 'blog' && this.state['blog'] === true) {
-          totale += 40;
+          totale += 20;
         } else if (key === 'formContatti' && this.state['formContatti'] === true) {
           totale += 20;
         } else if (key === 'gallery' && this.state['gallery'] === true) {
-          totale += 20;
+          totale += 10;
         } else if (key === 'prenotazioni' && this.state['prenotazioni'] === true) {
           totale += 200;
         } else if (key === 'registrazioni' && this.state['registrazioni'] === true) {
           totale += 500;
         } else if (key === 'analytics' && this.state['analytics'] === true) {
-          totale += 20;
+          totale += 10;
         } else if (key === 'chat' && this.state['chat'] === true) {
           totale += 20;
         } else if (key === 'isVisible') {
@@ -83,8 +83,8 @@ class Preventivo extends React.Component {
               <select name="stileDesign" value={this.state.stileDesign} onChange={this.handleChange}>
                 <option value="399">😐 Basilare</option>
                 <option value="449">😏 Semplice ma accattivante</option>
-                <option value="549">😉 Professionale</option>
-                <option value="699">😎 Totalmente personalizzata</option>
+                <option value="499">😉 Professionale</option>
+                <option value="599">😎 Totalmente personalizzata</option>
               </select>
             </li>
             <li className="Option">
@@ -99,9 +99,9 @@ class Preventivo extends React.Component {
               <label>Numero di lingue</label>
               <select name="numeroLingue" value={this.state.numeroLingue} onChange={this.handleChange}>
                 <option value="0">Una lingua</option>
-                <option value="200">2 lingue</option>
-                <option value="250">3 lingue</option>
-                <option value="300">4 lingue</option>
+                <option value="100">2 lingue</option>
+                <option value="200">3 lingue</option>
+                <option value="350">4 lingue</option>
                 <option value="450">5 lingue +</option>
               </select>
             </li>
@@ -116,16 +116,16 @@ class Preventivo extends React.Component {
               <label>Hai gia' le immagini?</label>
               <select name="immagini" value={this.state.immagini} onChange={this.handleChange}>
                 <option value="0">😌 Si</option>
-                <option value="80">🥺 No</option>
+                <option value="60">🥺 No</option>
               </select>
             </li>
             <li className="Option">
               <label>Numero di pagine</label>
               <select name="numeroPagine" value={this.state.numeroPagine} onChange={this.handleChange}>
                 <option value="0">Pagina singola</option>
-                <option value="250">2-5</option>
-                <option value="300">6-10</option>
-                <option value="450">11+</option>
+                <option value="150">2-5</option>
+                <option value="200">6-10</option>
+                <option value="350">11+</option>
               </select>
             </li>
             </ul>
